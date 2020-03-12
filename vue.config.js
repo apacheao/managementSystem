@@ -45,7 +45,7 @@ module.exports = {
         // ~ 的作用是为了让css-loader识别出@是个别名
         // prependData: `@import "~@/styles/main.styl"`
         // "resolve url": true,
-        // import: ["~@/styles/main.styl"]
+        // import: "~@/styles/main.styl"
       }
     }
     // requireModuleExtension: false
@@ -89,7 +89,7 @@ module.exports = {
     "style-resources-loader": {
       preProcessor: "stylus",
       patterns: [
-          path.resolve(__dirname, './src/styles/main.styl')
+        // path.resolve(__dirname, './src/styles/main.styl')
       ]
     }
   }

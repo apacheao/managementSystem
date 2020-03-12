@@ -68,7 +68,12 @@
 </template>
 
 <script>
-import { stripscript, validateEmail, validatePass, validateVCode } from '@/utils/validate'
+import {
+  stripscript,
+  validateEmail,
+  validatePass,
+  validateVCode
+} from "@/utils/validate";
 export default {
   name: "index",
   data() {
@@ -84,8 +89,8 @@ export default {
     };
     // 验证密码
     let validatePassword = (rule, value, callback) => {
-      this.ruleForm.pass = stripscript(value)
-      value = this.ruleForm.pass
+      this.ruleForm.pass = stripscript(value);
+      value = this.ruleForm.pass;
       if (value === "") {
         callback(new Error("密码不能为空"));
       } else if (!validatePass(value)) {
@@ -96,14 +101,14 @@ export default {
     };
     // 验证验证码
     let validateCode = (rule, value, callback) => {
-      this.ruleForm.code = stripscript(value)
-      value = this.ruleForm.code
+      this.ruleForm.code = stripscript(value);
+      value = this.ruleForm.code;
       if (value === "") {
         return callback(new Error("验证码不能为空"));
       } else if (!validateVCode(value)) {
         callback(new Error("请输入6的验证码"));
       } else {
-        callback()
+        callback();
       }
     };
     return {
@@ -145,55 +150,46 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-#login {
+  #login {
     height: 100vh;
     background-color: #344a5f;
-
     .login-wrap {
-        width: 330px;
-        margin: auto;
-
-        .menu-tab {
-            text-align: center;
-
-            li {
-                display: inline-block;
-                width: 88px;
-                line-height: 36px;
-                font-size: 14px;
-                color: #fff;
-                border-radius: 2px;
-                cursor: pointer;
-            }
-
-            .current {
-                background-color: rgba(0, 0, 0, .1);
-            }
+      width: 330px;
+      margin: auto;
+      .menu-tab {
+        text-align: center;
+        li {
+          display: inline-block;
+          width: 88px;
+          line-height: 36px;
+          font-size: 14px;
+          color: #fff;
+          border-radius: 2px;
+          cursor: pointer;
         }
-
-        .login-form {
-            margin-top 29px
-
-            label {
-                display: block;
-                margin-bottom: 3px;
-                font-size: 14px;
-                color: #fff;
-            }
-
-            .item-form {
-                margin-bottom: 13px;
-            }
-
-            .block {
-                width: 100%;
-                display block
-            }
-
-            .login-btn {
-                margin-top 19px
-            }
+        .current {
+          background-color: rgba(0, 0, 0, .1);
         }
-    }
+      }
+      .login-form {
+        margin-top 29px
+        label {
+          display: block;
+          margin-bottom: 3px;
+          font-size: 14px;
+          color: #fff;
+        }
+        .item-form {
+          margin-bottom: 13px;
+        }
+        .block {
+          width: 100%;
+          display block
+        }
+        .login-btn {
+          margin-top 19px
+        }
+      }
+  }
 }
 </style>
